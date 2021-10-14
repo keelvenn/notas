@@ -1,0 +1,28 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+header{
+  background-color: #83FF59;
+  width: 100%;
+  height: 25px;
+}
+
+body{
+background-color: #5AD9FF
+}
+textarea{
+  max-width: 200px;
+  max-height: 200px;
+  border: none;
+}
+.text{
+  margin: 20px;
+}
+.headertext{
+  margin: 0px;
+  padding: 0px;
+  width: 200px;
+  height: 25px;
+  background-color: #83FF59;
+}
