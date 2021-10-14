@@ -14,9 +14,13 @@ header{
 img{
 padding: 10px;
 }
+
 body{
-background-color: #5AD9FF
+background-color: #5AD9FF;
+display: flex;
+flex-flow: wrap;
 }
+
 textarea{
   max-width: 200px;
   max-height: 200px;
