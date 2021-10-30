@@ -1,21 +1,75 @@
-const add = document.getElementById("adicionar");
-const body = document.getElementById("body");
+const adicionar = document.getElementById("adicionar");
+const notas = document.getElementById("notas");
 
 
-
-add.addEventListener("click", function(){
-createnote();
+adicionar.addEventListener("click",function(){
+criarnota();
 });
 
 
-function createnote(){
-//const note = document.querySelector(".text").cloneNode(true);
-const div = document.createElement("div");
-const textarea = document.createElement("textarea");
+//Funções
+
+function criarnota(){
+
 const container = document.createElement("div");
-div.classList.add("headertext");
-textarea.classList.add("textarea");
-container.classList.add("text");
-container.append(div, textarea);
-body.append(container);
+container.setAttribute("id","container");
+
+const containerchk = document.createElement("div");
+containerchk.setAttribute("id","containerchk");
+
+const headernota = document.createElement("div");
+headernota.setAttribute("id","headernota");
+
+const textarea = document.createElement("textarea");
+
+const apagar = document.createElement("button");
+apagar.setAttribute("id","apagar");
+
+const expandir = document.createElement("input");
+expandir.type = "checkbox";
+expandir.setAttribute("id","expandir");
+
+const exp = document.createElement("button");
+exp.setAttribute("id","exp");
+exp.innerText = "-";
+
+containerchk.append(expandir,exp);
+
+apagar.innerText = "X";
+
+headernota.append(containerchk,apagar);
+
+container.append(headernota, textarea);
+
+notas.append(container);
+
+//Funções dos Botões
+apagar.addEventListener("click",function(){
+container.remove();
+});
+
+exp.addEventListener("click",function(){
+if(expandir.checked == true){
+  expandir.checked = false;
+}else if(expandir.checked == false){
+expandir.checked = true;
 };
+
+if(expandir.checked == true ){
+  textarea.style.width = "500px";
+  textarea.style.height = "500px";
+  headernota.style.width = "500px";
+}else{
+  textarea.style.width = "200px";
+  textarea.style.height = "200px";
+  headernota.style.width = "200px";
+}
+
+
+});
+
+
+
+
+
+}
