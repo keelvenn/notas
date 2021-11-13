@@ -61,6 +61,7 @@ function adicionar_nota(event){
   notas.append(container);
 
     apagar.addEventListener("click",function(){
+
       let list_storage = JSON.parse(localStorage.data);
 
       let index_list = list_storage.indexOf(textarea.value, 1);
@@ -68,15 +69,29 @@ function adicionar_nota(event){
 
       localStorage.data = JSON.stringify(list_storage);
 
-      container.remove();
-    })
+      container.remove(); })
+
+    exp.addEventListener("click", function(){
+
+      if(expandir.checked == true){
+       expandir.checked = false;
+       }else if(expandir.checked == false){
+       expandir.checked = true;
+       }
+
+     if(expandir.checked == true ){
+       textarea.style.width = "500px";
+       textarea.style.height = "500px";
+       headernota.style.width = "500px";
+       }else{
+       textarea.style.width = "200px";
+       textarea.style.height = "200px";
+       headernota.style.width = "200px";
+       }
+
+    });
 
 
-
-  //Cria uma lista com valor do Index
-  //if(!lists[index]){
-  //  lists[index] = index;
-  //}
    }; // Final função
 
 
@@ -160,6 +175,7 @@ function loadnote(){
     textarea.click();
 
     apagar.addEventListener("click",function(){
+
       let list_storage = JSON.parse(localStorage.data);
 
       let index_list = list_storage.indexOf(textarea.value, 1);
@@ -168,13 +184,33 @@ function loadnote(){
       localStorage.data = JSON.stringify(list_storage);
 
       container.remove();
+
     })
+
+    exp.addEventListener("click", function(){
+
+      if(expandir.checked == true){
+       expandir.checked = false;
+       }else if(expandir.checked == false){
+       expandir.checked = true;
+       }
+
+     if(expandir.checked == true ){
+       textarea.style.width = "500px";
+       textarea.style.height = "500px";
+       headernota.style.width = "500px";
+       }else{
+       textarea.style.width = "200px";
+       textarea.style.height = "200px";
+       headernota.style.width = "200px";
+       }
+
+    });
     //Cria uma lista com valor do Index
 
        // Final função
     });
-    push_notes();
-    };
+    push_notes(); };
 
 function apagar_nota(){
   let list_storage = JSON.parse(localStorage.data);
