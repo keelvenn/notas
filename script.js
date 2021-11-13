@@ -3,19 +3,21 @@ const notas = document.getElementById("notas");
 let lists = [];
 let index = 0;
 
-if(!localStorage.data){
-  localStorage.data = "[]";
-}
 
 if(!localStorage.index){
   localStorage.index = "[]";
 }
 
+if(!localStorage.data){
+  localStorage.data = "[]";
+}
 
 loadnote();
 
 adicionar.addEventListener("click",function(){
 adicionar_nota();
+
+
 
 });
 
@@ -58,6 +60,19 @@ function adicionar_nota(event){
 
   notas.append(container);
 
+    apagar.addEventListener("click",function(){
+      let list_storage = JSON.parse(localStorage.data);
+
+      let index_list = list_storage.indexOf(textarea.value, 1);
+      list_storage.splice(index_list);
+
+      localStorage.data = JSON.stringify(list_storage);
+
+      container.remove();
+    })
+
+
+
   //Cria uma lista com valor do Index
   //if(!lists[index]){
   //  lists[index] = index;
@@ -75,6 +90,7 @@ function target(event){
     target.id = index;
     index = index + 1;
   }
+
 
   //console.log("TextArea ID: "target.id);
 
@@ -141,12 +157,21 @@ function loadnote(){
 
     console.log(lists);
 
-    textarea.id = index;
+    textarea.click();
 
+    apagar.addEventListener("click",function(){
+      let list_storage = JSON.parse(localStorage.data);
+
+      let index_list = list_storage.indexOf(textarea.value, 1);
+      list_storage.splice(index_list);
+
+      localStorage.data = JSON.stringify(list_storage);
+
+      container.remove();
+    })
     //Cria uma lista com valor do Index
-    if(!lists[index]){
-      lists[index] = index;
-      } // Final função
+
+       // Final função
     });
     push_notes();
     };
@@ -161,3 +186,5 @@ function apagar_nota(){
 
   container.remove();
 };
+
+console.log(index);
